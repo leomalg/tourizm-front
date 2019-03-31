@@ -1,5 +1,13 @@
 {
   "home": {
     "title": "Tourizm"
+  },
+  "tour": {
+    "table": {
+      "name": "Nom",
+      "description": "Description",
+      "duration": "Durée",
+      "steps": "Nombre d'étapes"
+    }
   }
 }

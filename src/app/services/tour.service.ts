@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class TourService {
 
-  API_URL = 'http://localhost:8080/tours';
+  API_URL = 'tours';
 
   constructor(private httpClient: HttpClient) { }
 

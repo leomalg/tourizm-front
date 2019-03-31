@@ -9,7 +9,6 @@ export class ToursResolve implements Resolve<Tour[]> {
   constructor(private tourService: TourService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Tour[]> {
-    // return of([]);
     return this.tourService.getAllTour();
   }
 }

@@ -5,19 +5,19 @@ import {TourListComponent} from './home/tour-list/tour-list.component';
 import {ToursResolve} from './home/resolvers/tour.resolver';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: '/home',
+  //   pathMatch: 'full'
+  // },
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
     component: HomeComponent,
     children: [
       {
         path: '',
         component: TourListComponent,
-        resolve: {data: ToursResolve}
+        resolve: {tours: ToursResolve}
       }
     ]
   }
