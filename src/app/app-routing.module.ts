@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {TourListComponent} from './home/tour-list/tour-list.component';
+import {TourListComponent} from './home/tour/tour-list/tour-list.component';
 import {ToursResolve} from './home/resolvers/tour.resolver';
 
 const routes: Routes = [

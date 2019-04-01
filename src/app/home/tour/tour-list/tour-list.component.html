@@ -1,0 +1,36 @@
+<div class="container d-flex justify-content-between">
+  <div>
+    <h2 class="display-5">{{ 'tour.title' | translate}}</h2>
+  </div>
+  <div>
+    <button type="button" class="btn btn-dark" (click)="openCreateTourModal()">
+      <span class="fas fa-plus mr-1"></span>
+      {{ 'tour.add' | translate }}
+    </button>
+  </div>
+</div>
+
+<table class="table table-striped mt-4">
+  <thead>
+  <tr>
+    <th scope="col">{{ 'tour.table.name' | translate}}</th>
+    <th style="width: 50%" scope="col">{{ 'tour.table.description' | translate}}</th>
+    <th scope="col">{{ 'tour.table.duration' | translate}}</th>
+    <th scope="col">{{ 'tour.table.steps' | translate}}</th>
+    <th scope="col">{{ 'tour.table.actions' | translate}}</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tour of tours">
+    <td>{{ tour.name }}</td>
+    <td>{{ tour.description}}</td>
+    <td>{{ tour.duration }}</td>
+    <td>{{ tour.stepCount | number }}</td>
+    <td class="d-flex justify-content-around">
+      <i class="far fa-edit pb-1" placement="bottom" ngbTooltip="{{ 'tour.table.tooltip.update'| translate }}"></i>
+      <i class="far fa-trash-alt pb-1" (click)="deleteTour(tour.id)" placement="bottom"
+         ngbTooltip="{{ 'tour.table.tooltip.delete'| translate }}"></i>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -5,10 +5,12 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {MatTableModule, MatToolbarModule} from '@angular/material';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HomeComponent} from './home/home.component';
-import {TourListComponent} from './home/tour-list/tour-list.component';
+import {TourListComponent} from './home/tour/tour-list/tour-list.component';
+import {CreateTourComponent} from './home/tour/create-tour/create-tour.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ReactiveFormsModule} from '@angular/forms';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -18,7 +20,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
-    TourListComponent
+    TourListComponent,
+    CreateTourComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +35,14 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    MatToolbarModule,
-    MatTableModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    CreateTourComponent
+  ]
 })
 export class AppModule {
 }

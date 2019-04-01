@@ -3,11 +3,21 @@
     "title": "Tourizm"
   },
   "tour": {
+    "title": "Liste des circuits",
+    "add": "Nouveau circuit",
     "table": {
       "name": "Nom",
       "description": "Description",
       "duration": "Durée",
-      "steps": "Nombre d'étapes"
+      "steps": "Nombre d'étapes",
+      "actions": "Actions",
+      "tooltip": {
+        "update": "Modifier",
+        "delete": "supprimer"
+      }
+    },
+    "create": {
+      "title": "Nouveau circuit"
     }
   }
 }
