@@ -16,9 +16,12 @@ export class TourService {
     return this.httpClient.get<Tour[]>(this.API_URL);
   }
 
-  createTour(tour: Tour) {
+  getTourById(id: number): Observable<Tour> {
+    return this.httpClient.get<Tour>(`${this.API_URL}/${id}`);
+  }
 
-    this.httpClient.post<Tour>(this.API_URL, tour);
+  createTour(tour: Tour): Observable<Tour> {
+    return this.httpClient.post<Tour>(this.API_URL, tour);
   }
 
   deleteTour(id: number): Observable<Tour> {

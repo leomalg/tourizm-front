@@ -5,13 +5,11 @@ import {TourService} from '../../services/tour.service';
 import {Observable} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class TourResolve implements Resolve<Tour> {
+export class ToursResolve implements Resolve<Tour[]> {
   constructor(private tourService: TourService) {
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Tour> {
-    const idStr = 'id';
-    const id = route.data[idStr];
-    return this.tourService.getTourById(id);
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Tour[]> {
+    return this.tourService.getAllTour();
   }
 }

@@ -17,7 +17,12 @@
       }
     },
     "create": {
-      "title": "Nouveau circuit"
+      "title": "Nouveau circuit",
+      "name": "Nom",
+      "desc": "Description",
+      "duration": "Durée",
+      "close": "Fermer",
+      "submit": "Valider"
     }
   }
 }
