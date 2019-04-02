@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {NgbActiveModal, NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TourService} from '../../../services/tour.service';
+import {StepService} from '../../../services/step.service';
 import {Tour} from '../../model/tour.model';
 import {NgbTimeStringAdapter} from '../../../services/ngb-string-moment-adapter';
 
@@ -17,6 +18,7 @@ export class CreateTourComponent implements OnInit {
   tour = new Tour();
 
   constructor(private tourService: TourService,
+              private stepService: StepService,
               private router: Router,
               public activeModal: NgbActiveModal) {
   }

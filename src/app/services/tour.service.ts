@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Tour} from '../home/model/tour.model';
 import {Observable} from 'rxjs';
@@ -10,7 +10,8 @@ export class TourService {
 
   API_URL = 'tours';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getAllTour(): Observable<Tour[]> {
     return this.httpClient.get<Tour[]>(this.API_URL);

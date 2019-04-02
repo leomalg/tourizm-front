@@ -18,11 +18,11 @@
     </div>
     <div class="form-group">
       <label for="duration">{{ 'tour.create.duration' | translate }}</label>
-      <ngb-timepicker formControlName="duration" id="duration" class="" required></ngb-timepicker>
+      <ngb-timepicker formControlName="duration" id="duration" class="d-flex justify-content-center" required></ngb-timepicker>
     </div>
   </form>
 </div>
 <div class="modal-footer d-flex justify-content-between">
-  <button type="button" class="btn btn-outline-dark" (click)="close()">{{ 'tour.create.close' | translate }}</button>
-  <button type="button" class="btn btn-secondary" (click)="submit()" [disabled]="tourForm.invalid">{{ 'tour.create.submit' | translate }}</button>
+  <button type="button" class="btn btn-outline-dark" (click)="close()">{{ 'global.close' | translate }}</button>
+  <button type="button" class="btn btn-secondary" (click)="submit()" [disabled]="tourForm.invalid">{{ 'global.submit' | translate }}</button>
 </div>

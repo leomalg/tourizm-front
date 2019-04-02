@@ -11,7 +11,7 @@ export class TourResolve implements Resolve<Tour> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Tour> {
     const idStr = 'id';
-    const id = route.data[idStr];
+    const id = route.params[idStr];
     return this.tourService.getTourById(id);
   }
 }

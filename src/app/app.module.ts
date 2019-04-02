@@ -12,6 +12,8 @@ import {CreateTourComponent} from './home/tour/create-tour/create-tour.component
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
 import {TourDetailComponent} from './home/tour/tour-detail/tour-detail.component';
+import { StepListComponent } from './home/step/step-list/step-list.component';
+import { CreateStepComponent } from './home/step/create-step/create-step.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -24,6 +26,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TourListComponent,
     CreateTourComponent,
     TourDetailComponent,
+    StepListComponent,
+    CreateStepComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    CreateTourComponent
+    CreateTourComponent,
+    CreateStepComponent
   ]
 })
 export class AppModule {

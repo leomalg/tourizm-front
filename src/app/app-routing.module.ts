@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {TourListComponent} from './home/tour/tour-list/tour-list.component';
 import {ToursResolve} from './home/resolvers/tours.resolver';
 import {TourResolve} from './home/resolvers/tour.resolver';
+import {TourDetailComponent} from './home/tour/tour-detail/tour-detail.component';
 
 const routes: Routes = [
   {
@@ -22,9 +23,8 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: TourListComponent,
-        resolve: {tour: TourResolve},
-        data: {id: 'id'}
+        component: TourDetailComponent,
+        resolve: {tour: TourResolve}
       }
     ]
   },

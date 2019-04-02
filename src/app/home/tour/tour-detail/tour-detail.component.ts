@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Tour} from '../../model/tour.model';
 import {ActivatedRoute} from '@angular/router';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {CreateStepComponent} from '../../step/create-step/create-step.component';
 
 @Component({
   selector: 'app-tour-detail',
@@ -11,7 +13,8 @@ export class TourDetailComponent implements OnInit {
 
   tour: Tour;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -19,4 +22,8 @@ export class TourDetailComponent implements OnInit {
     });
   }
 
+  openCreateStepModal() {
+    const modalRef = this.modalService.open(CreateStepComponent);
+    modalRef.componentInstance.tourId = this.tour.id;
+  }
 }

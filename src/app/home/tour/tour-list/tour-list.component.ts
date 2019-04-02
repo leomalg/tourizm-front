@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {TourService} from '../../../services/tour.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CreateTourComponent} from '../create-tour/create-tour.component';
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-tour-list',
@@ -35,5 +36,9 @@ export class TourListComponent implements OnInit {
 
   openCreateTourModal() {
     this.modalService.open(CreateTourComponent);
+  }
+
+  toursEmpty() {
+    return isNullOrUndefined(this.tours) || this.tours.length === 0;
   }
 }

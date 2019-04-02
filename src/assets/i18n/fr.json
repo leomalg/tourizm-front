@@ -1,4 +1,10 @@
 {
+  "global": {
+    "close": "Fermer",
+    "submit": "Valider",
+    "back": "Retour",
+    "actions": "Actions"
+  },
   "home": {
     "title": "Tourizm"
   },
@@ -10,7 +16,7 @@
       "description": "Description",
       "duration": "Durée",
       "steps": "Nombre d'étapes",
-      "actions": "Actions",
+      "empty": "Pas de circuit",
       "tooltip": {
         "update": "Modifier",
         "delete": "supprimer"
@@ -20,9 +26,26 @@
       "title": "Nouveau circuit",
       "name": "Nom",
       "desc": "Description",
-      "duration": "Durée",
-      "close": "Fermer",
-      "submit": "Valider"
+      "duration": "Durée"
+    }
+  },
+  "step": {
+    "add": "Ajouter une étape",
+    "table": {
+      "name": "Nom",
+      "description": "Description",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "order": "Ordre",
+      "empty": "Pas d'étape"
+    },
+    "create": {
+      "title": "Nouvelle étape",
+      "name": "Nom",
+      "desc": "Description",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "order": "Ordre"
     }
   }
 }

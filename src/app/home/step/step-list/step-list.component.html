@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <table class="table table-striped mt-4">
+    <thead>
+    <tr>
+      <th scope="col">{{ 'step.table.name' | translate}}</th>
+      <th style="width: 50%" scope="col">{{ 'step.table.description' | translate}}</th>
+      <th scope="col">{{ 'step.table.latitude' | translate}}</th>
+      <th scope="col">{{ 'step.table.longitude' | translate}}</th>
+      <th scope="col">{{ 'step.table.order' | translate}}</th>
+      <th scope="col">{{ 'global.actions' | translate}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let step of steps">
+      <td>{{ step.name }}</td>
+      <td>{{ step.description | slice:0:120 }}<span *ngIf="step.description.length > 120">…</span></td>
+      <td>{{ step.latitude }}</td>
+      <td>{{ step.longitude }}</td>
+      <td>{{ step.order | number }}</td>
+      <td class="d-flex justify-content-around">
+        <i class="far fa-edit pb-1" placement="bottom" ngbTooltip="{{ 'step.table.tooltip.update'| translate }}"
+           routerLink="./{{step.id}}"></i>
+        <i class="far fa-trash-alt pb-1" (click)="deleteStep(step.id)" placement="bottom"
+           ngbTooltip="{{ 'step.table.tooltip.delete'| translate }}"></i>
+      </td>
+    </tr>
+    <tr class="child">
+      <td *ngIf="stepsEmpty()" colspan="6"  class="font-italic">{{ 'step.table.empty' | translate }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
