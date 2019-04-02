@@ -1,14 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TourService} from '../../../services/tour.service';
 import {Tour} from '../../model/tour.model';
+import {NgbTimeStringAdapter} from '../../../services/ngb-string-moment-adapter';
 
 @Component({
   selector: 'app-create-tour',
   templateUrl: './create-tour.component.html',
-  styleUrls: ['./create-tour.component.scss']
+  styleUrls: ['./create-tour.component.scss'],
+  providers: [{provide: NgbTimeAdapter, useClass: NgbTimeStringAdapter}]
 })
 export class CreateTourComponent implements OnInit {
   tourForm: FormGroup;
@@ -26,13 +28,14 @@ export class CreateTourComponent implements OnInit {
   createForm() {
     this.tourForm = new FormGroup({
       name: new FormControl('', Validators.required),
-      desc: new FormControl(''),
-      duration: new FormControl(''),
+      description: new FormControl(''),
+      duration: new FormControl(null),
     });
   }
 
   submit() {
     this.tour = this.tourForm.value;
+    console.log(this.tour);
     this.tourService.createTour(this.tour).pipe().subscribe(tour => {
         this.close();
         this.router.navigate(['/tour/' + tour.id]);

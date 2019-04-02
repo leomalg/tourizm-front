@@ -9,20 +9,20 @@
     <div class="form-group">
       <label for="name">{{ 'tour.create.name' | translate }}</label>
       <input type="text" formControlName="name" class="form-control" id="name"
-             placeholder="{{ 'tour.create.name' | translate }}" autofocus>
+             placeholder="{{ 'tour.create.name' | translate }}" autofocus required>
     </div>
     <div class="form-group">
-      <label for="desc">{{ 'tour.create.desc' | translate }}</label>
-      <textarea formControlName="desc" class="form-control" id="desc"
+      <label for="description">{{ 'tour.create.desc' | translate }}</label>
+      <textarea formControlName="description" class="form-control" id="description"
                 placeholder="{{ 'tour.create.desc' | translate }}"></textarea>
     </div>
     <div class="form-group">
       <label for="duration">{{ 'tour.create.duration' | translate }}</label>
-      <ngb-timepicker formControlName="duration" id="duration" class="d-flex justify-content-center"></ngb-timepicker>
+      <ngb-timepicker formControlName="duration" id="duration" class="" required></ngb-timepicker>
     </div>
   </form>
 </div>
 <div class="modal-footer d-flex justify-content-between">
   <button type="button" class="btn btn-outline-dark" (click)="close()">{{ 'tour.create.close' | translate }}</button>
-  <button type="button" class="btn btn-secondary" (click)="submit()">{{ 'tour.create.submit' | translate }}</button>
+  <button type="button" class="btn btn-secondary" (click)="submit()" [disabled]="tourForm.invalid">{{ 'tour.create.submit' | translate }}</button>
 </div>

@@ -23,7 +23,7 @@
   <tbody>
   <tr *ngFor="let tour of tours">
     <td>{{ tour.name }}</td>
-    <td>{{ tour.description}}</td>
+    <td>{{ tour.description | slice:0:120 }}<span *ngIf="tour.description.length > 120">…</span></td>
     <td>{{ tour.duration }}</td>
     <td>{{ tour.stepCount | number }}</td>
     <td class="d-flex justify-content-around">

@@ -4,7 +4,7 @@ export class Tour {
   id?: number;
   name?: string;
   description?: string;
-  duration?: Moment;
+  duration?: string;
   stepCount?: number;
   // steps?: Step[];
 }
