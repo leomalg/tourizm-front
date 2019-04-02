@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Step} from '../../model/step.model';
+import {StepService} from '../../../services/step.service';
 
 @Component({
   selector: 'app-create-step',
@@ -10,10 +11,12 @@ import {Step} from '../../model/step.model';
 })
 export class CreateStepComponent implements OnInit {
   @Input() tourId: number;
+
   stepForm: FormGroup;
   step = new Step();
 
-  constructor(public activeModal: NgbActiveModal) {
+  constructor(private stepService: StepService,
+              private activeModal: NgbActiveModal) {
   }
 
   ngOnInit() {
@@ -33,17 +36,19 @@ export class CreateStepComponent implements OnInit {
 
   submit() {
     this.step = this.stepForm.value;
-    console.log(this.step)
-    // console.log(this.tour);
-    // this.tourService.createTour(this.tour).pipe().subscribe(tour => {
-    //     this.close();
-    //     this.router.navigate(['/tour/' + tour.id]);
-    //   },
-    //   error => console.log('error')
-    // );
+    this.step.tourId = this.tourId;
+    this.stepService.createStep(this.tourId, this.step).pipe().subscribe(tour => {
+        this.close();
+      },
+      error => console.error(error)
+    );
   }
 
   close() {
     this.activeModal.close();
+  }
+
+  dismiss() {
+    this.activeModal.dismiss();
   }
 }

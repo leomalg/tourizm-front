@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">{{ 'step.create.title' | translate }}</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -34,7 +34,7 @@
   </form>
 </div>
 <div class="modal-footer d-flex justify-content-between">
-  <button type="button" class="btn btn-outline-dark" (click)="close()">{{ 'global.close' | translate }}</button>
+  <button type="button" class="btn btn-outline-dark" (click)="dismiss()">{{ 'global.close' | translate }}</button>
   <button type="button" class="btn btn-secondary" (click)="submit()"
           [disabled]="stepForm.invalid">{{ 'global.submit' | translate }}</button>
 </div>

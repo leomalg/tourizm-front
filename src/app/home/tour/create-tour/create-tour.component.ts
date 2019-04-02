@@ -20,7 +20,7 @@ export class CreateTourComponent implements OnInit {
   constructor(private tourService: TourService,
               private stepService: StepService,
               private router: Router,
-              public activeModal: NgbActiveModal) {
+              private activeModal: NgbActiveModal) {
   }
 
   ngOnInit() {
@@ -37,12 +37,11 @@ export class CreateTourComponent implements OnInit {
 
   submit() {
     this.tour = this.tourForm.value;
-    console.log(this.tour);
     this.tourService.createTour(this.tour).pipe().subscribe(tour => {
         this.close();
         this.router.navigate(['/tour/' + tour.id]);
       },
-      error => console.log('error')
+      error => console.error(error)
     );
   }
 
