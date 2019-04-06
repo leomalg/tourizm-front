@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -10,10 +10,12 @@ import {HomeComponent} from './home/home.component';
 import {TourListComponent} from './home/tour/tour-list/tour-list.component';
 import {CreateTourComponent} from './home/tour/create-tour/create-tour.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TourDetailComponent} from './home/tour/tour-detail/tour-detail.component';
-import { StepListComponent } from './home/step/step-list/step-list.component';
-import { CreateStepComponent } from './home/step/create-step/create-step.component';
+import {StepListComponent} from './home/step/step-list/step-list.component';
+import {CreateStepComponent} from './home/step/create-step/create-step.component';
+import {ErrorComponent} from './errors/error.component';
+import {ErrorInterceptor} from './interceptors/error-interceptor.service';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -28,6 +30,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     TourDetailComponent,
     StepListComponent,
     CreateStepComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,13 +45,20 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     }),
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent],
   entryComponents: [
     CreateTourComponent,
-    CreateStepComponent
+    CreateStepComponent,
+    ErrorComponent
   ]
 })
 export class AppModule {
