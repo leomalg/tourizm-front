@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Tour} from '../home/model/tour.model';
+import {Tour} from '../model/tour.model';
 import {Observable} from 'rxjs';
 
 @Injectable({

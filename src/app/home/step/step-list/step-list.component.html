@@ -18,14 +18,13 @@
       <td>{{ step.longitude }}</td>
       <td>{{ step.order | number }}</td>
       <td class="d-flex justify-content-around">
-        <i class="far fa-edit pb-1" placement="bottom" ngbTooltip="{{ 'step.table.tooltip.update'| translate }}"
-           routerLink="./{{step.id}}"></i>
+        <i class="far fa-edit pb-1" placement="bottom" ngbTooltip="{{ 'global.tooltip.update'| translate }}"></i>
         <i class="far fa-trash-alt pb-1" (click)="deleteStep(step.id)" placement="bottom"
-           ngbTooltip="{{ 'step.table.tooltip.delete'| translate }}"></i>
+           ngbTooltip="{{ 'global.tooltip.delete'| translate }}"></i>
       </td>
     </tr>
     <tr class="child">
-      <td *ngIf="stepsEmpty()" colspan="6"  class="font-italic">{{ 'step.table.empty' | translate }}</td>
+      <td *ngIf="stepsEmpty()" colspan="6" class="font-italic">{{ 'step.table.empty' | translate }}</td>
     </tr>
     </tbody>
   </table>

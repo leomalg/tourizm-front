@@ -28,10 +28,10 @@
       <td>{{ tour.duration }}</td>
       <td>{{ tour.steps.length | number }}</td>
       <td class="d-flex justify-content-around">
-        <i class="far fa-edit pb-1" placement="bottom" ngbTooltip="{{ 'tour.table.tooltip.update'| translate }}"
+        <i class="far fa-edit pb-1" placement="bottom" ngbTooltip="{{ 'global.tooltip.update'| translate }}"
            routerLink="./{{tour.id}}"></i>
         <i class="far fa-trash-alt pb-1" (click)="deleteTour(tour.id)" placement="bottom"
-           ngbTooltip="{{ 'tour.table.tooltip.delete'| translate }}"></i>
+           ngbTooltip="{{ 'global.tooltip.delete'| translate }}"></i>
       </td>
     </tr>
     <tr class="child">

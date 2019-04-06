@@ -3,7 +3,11 @@
     "close": "Fermer",
     "submit": "Valider",
     "back": "Retour",
-    "actions": "Actions"
+    "actions": "Actions",
+    "tooltip": {
+      "update": "Modifier",
+      "delete": "supprimer"
+    }
   },
   "home": {
     "title": "Tourizm"
@@ -16,11 +20,7 @@
       "description": "Description",
       "duration": "Durée",
       "steps": "Nombre d'étapes",
-      "empty": "Pas de circuit",
-      "tooltip": {
-        "update": "Modifier",
-        "delete": "supprimer"
-      }
+      "empty": "Pas de circuit"
     },
     "create": {
       "title": "Nouveau circuit",

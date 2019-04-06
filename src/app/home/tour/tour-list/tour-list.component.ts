@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Tour} from '../../model/tour.model';
+import {Tour} from '../../../model/tour.model';
 import {ActivatedRoute} from '@angular/router';
 import {TourService} from '../../../services/tour.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';

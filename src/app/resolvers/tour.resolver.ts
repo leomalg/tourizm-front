@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Tour} from '../model/tour.model';
-import {TourService} from '../../services/tour.service';
+import {TourService} from '../services/tour.service';
 import {Observable} from 'rxjs';
 
 @Injectable({providedIn: 'root'})

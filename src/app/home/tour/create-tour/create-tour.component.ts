@@ -4,7 +4,7 @@ import {NgbActiveModal, NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TourService} from '../../../services/tour.service';
 import {StepService} from '../../../services/step.service';
-import {Tour} from '../../model/tour.model';
+import {Tour} from '../../../model/tour.model';
 import {NgbTimeStringAdapter} from '../../../services/ngb-string-moment-adapter';
 
 @Component({

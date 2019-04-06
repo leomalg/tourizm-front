@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Step} from '../../model/step.model';
+import {Step} from '../../../model/step.model';
 import {StepService} from '../../../services/step.service';
 
 @Component({

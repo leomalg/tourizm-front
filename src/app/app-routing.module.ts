@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {TourListComponent} from './home/tour/tour-list/tour-list.component';
-import {ToursResolve} from './home/resolvers/tours.resolver';
-import {TourResolve} from './home/resolvers/tour.resolver';
+import {ToursResolve} from './resolvers/tours.resolver';
+import {TourResolve} from './resolvers/tour.resolver';
 import {TourDetailComponent} from './home/tour/tour-detail/tour-detail.component';
 
 const routes: Routes = [

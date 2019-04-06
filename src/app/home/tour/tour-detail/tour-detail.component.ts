@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Tour} from '../../model/tour.model';
+import {Tour} from '../../../model/tour.model';
 import {ActivatedRoute} from '@angular/router';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {CreateStepComponent} from '../../step/create-step/create-step.component';

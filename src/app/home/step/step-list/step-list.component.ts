@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Step} from '../../model/step.model';
+import {Step} from '../../../model/step.model';
 import {isNullOrUndefined} from 'util';
 import {StepService} from '../../../services/step.service';
 
