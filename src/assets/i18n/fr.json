@@ -28,6 +28,14 @@
       "name": "Nom",
       "desc": "Description",
       "duration": "Durée"
+    },
+    "error": {
+      "name": {
+        "required": "La saisie du nom est obligatoire."
+      },
+      "duration": {
+        "required": "La saisie de la durée est obligatoire."
+      }
     }
   },
   "step": {
@@ -47,6 +55,22 @@
       "latitude": "Latitude",
       "longitude": "Longitude",
       "order": "Ordre"
+    },
+    "error": {
+      "name": {
+        "required": "La saisie du nom est obligatoire."
+      },
+      "latitude": {
+        "required": "La saisie de la latitude est obligatoire.",
+        "pattern": "La latitude doit être au format 00,00."
+      },
+      "longitude": {
+        "required": "La saisie de la longitude est obligatoire.",
+        "pattern": "La longitude doit être au format 00,00."
+      },
+      "order": {
+        "required": "La saisie de l'ordre est obligatoire."
+      }
     }
   }
 }

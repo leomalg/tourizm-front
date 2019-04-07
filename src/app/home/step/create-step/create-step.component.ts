@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Step} from '../../../model/step.model';
 import {StepService} from '../../../services/step.service';
 
@@ -16,7 +16,8 @@ export class CreateStepComponent implements OnInit {
   step = new Step();
 
   constructor(private stepService: StepService,
-              private activeModal: NgbActiveModal) {
+              private activeModal: NgbActiveModal,
+              private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -25,12 +26,12 @@ export class CreateStepComponent implements OnInit {
   }
 
   createForm() {
-    this.stepForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      description: new FormControl(''),
-      latitude: new FormControl('', Validators.required),
-      longitude: new FormControl('', Validators.required),
-      order: new FormControl('', Validators.required),
+    this.stepForm = this.fb.group({
+      name: ['', Validators.required],
+      description: [''],
+      latitude: ['', Validators.compose([Validators.required, Validators.pattern('[-+]?\\d*\\,?\\d*')])],
+      longitude: ['', Validators.compose([Validators.required, Validators.pattern('[-+]?\\d*\\,?\\d*')])],
+      order: ['', Validators.compose([Validators.required, Validators.pattern('\\d*')])]
     });
   }
 
@@ -50,5 +51,15 @@ export class CreateStepComponent implements OnInit {
 
   dismiss() {
     this.activeModal.dismiss();
+  }
+
+  controlIsInvalid(controlName: string): boolean {
+    const control = this.stepForm.get(controlName);
+    return control.touched && control.invalid;
+  }
+
+  controlHasError(controlName: string, error: string): boolean {
+    const control = this.stepForm.get(controlName);
+    return control.touched && control.invalid && control.hasError(error);
   }
 }

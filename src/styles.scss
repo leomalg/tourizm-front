@@ -10,3 +10,24 @@
 .far {
   cursor: pointer;
 }
+
+.input-required::after {
+  content: " *";
+}
+
+.input-invalid {
+  border-color: #dc3545;
+}
+
+.child-input-invalid input {
+  border-color: #dc3545;
+}
+
+.error-label {
+  color: #dc3545;
+  font-size: small;
+}
+
+.error-label::before {
+  content: "• ";
+}

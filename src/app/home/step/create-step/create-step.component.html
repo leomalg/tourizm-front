@@ -7,29 +7,40 @@
 <div class="modal-body">
   <form [formGroup]="stepForm" autocomplete="off">
     <div class="form-group">
-      <label for="name">{{ 'step.create.name' | translate }}</label>
+      <label class="input-required" for="name">{{ 'step.create.name' | translate }}</label>
       <input type="text" formControlName="name" class="form-control" id="name"
-             placeholder="{{ 'step.create.name' | translate }}" autofocus required>
+             placeholder="{{ 'step.create.name' | translate }}" autofocus
+             [ngClass]="{'input-invalid': controlIsInvalid('name')}">
+      <span class="error-label" *ngIf="controlHasError('name', 'required')">{{ 'step.error.name.required' | translate }}</span>
     </div>
     <div class="form-group">
       <label for="description">{{ 'step.create.desc' | translate }}</label>
       <textarea formControlName="description" class="form-control" id="description"
-                placeholder="{{ 'step.create.desc' | translate }}"></textarea>
+                placeholder="{{ 'step.create.desc' | translate }}"
+                [ngClass]="{'input-invalid': controlIsInvalid('description')}"></textarea>
     </div>
     <div class="form-group">
-      <label for="latitude">{{ 'step.create.latitude' | translate }}</label>
+      <label class="input-required" for="latitude">{{ 'step.create.latitude' | translate }}</label>
       <input type="text" formControlName="latitude" class="form-control" id="latitude"
-             placeholder="{{ 'step.create.latitude' | translate }}" required>
+             placeholder="{{ 'step.create.latitude' | translate }}"
+             [ngClass]="{'input-invalid': controlIsInvalid('latitude')}">
+      <span class="error-label" *ngIf="controlHasError('latitude', 'required')">{{ 'step.error.latitude.required' | translate }}</span>
+      <span class="error-label" *ngIf="controlHasError('latitude', 'pattern')">{{ 'step.error.latitude.pattern' | translate }}</span>
     </div>
     <div class="form-group">
-      <label for="longitude">{{ 'step.create.longitude' | translate }}</label>
+      <label class="input-required" for="longitude">{{ 'step.create.longitude' | translate }}</label>
       <input type="text" formControlName="longitude" class="form-control" id="longitude"
-             placeholder="{{ 'step.create.longitude' | translate }}" required>
+             placeholder="{{ 'step.create.longitude' | translate }}"
+             [ngClass]="{'input-invalid': controlIsInvalid('longitude')}">
+      <span class="error-label" *ngIf="controlHasError('longitude', 'required')">{{ 'step.error.longitude.required' | translate }}</span>
+      <span class="error-label" *ngIf="controlHasError('longitude', 'pattern')">{{ 'step.error.longitude.pattern' | translate }}</span>
     </div>
     <div class="form-group">
-      <label for="order">{{ 'step.create.order' | translate }}</label>
+      <label class="input-required" for="order">{{ 'step.create.order' | translate }}</label>
       <input type="number" formControlName="order" class="form-control" id="order"
-             placeholder="{{ 'step.create.order' | translate }}" required>
+             placeholder="{{ 'step.create.order' | translate }}"
+             [ngClass]="{'input-invalid': controlIsInvalid('order')}">
+      <span class="error-label" *ngIf="controlHasError('order', 'required')">{{ 'step.error.order.required' | translate }}</span>
     </div>
   </form>
 </div>

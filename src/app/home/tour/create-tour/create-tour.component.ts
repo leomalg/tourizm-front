@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgbActiveModal, NgbTimeAdapter} from '@ng-bootstrap/ng-bootstrap';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TourService} from '../../../services/tour.service';
 import {StepService} from '../../../services/step.service';
 import {Tour} from '../../../model/tour.model';
@@ -20,7 +20,8 @@ export class CreateTourComponent implements OnInit {
   constructor(private tourService: TourService,
               private stepService: StepService,
               private router: Router,
-              private activeModal: NgbActiveModal) {
+              private activeModal: NgbActiveModal,
+              private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -28,10 +29,10 @@ export class CreateTourComponent implements OnInit {
   }
 
   createForm() {
-    this.tourForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      description: new FormControl(''),
-      duration: new FormControl(null),
+    this.tourForm = this.fb.group({
+      name: ['', Validators.required],
+      description: [''],
+      duration: [null, Validators.required],
     });
   }
 
@@ -47,5 +48,15 @@ export class CreateTourComponent implements OnInit {
 
   close() {
     this.activeModal.close();
+  }
+
+  controlIsInvalid(controlName: string): boolean {
+    const control = this.tourForm.get(controlName);
+    return control.touched && control.invalid;
+  }
+
+  controlHasError(controlName: string, error: string): boolean {
+    const control = this.tourForm.get(controlName);
+    return control.touched && control.invalid && control.hasError(error);
   }
 }
